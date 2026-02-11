@@ -1,0 +1,1 @@
+ALTER SEQUENCE seq_cliente RENAME TO cliente_seq;

@@ -23,10 +23,10 @@ public class TransferenciaModel {
     private BigDecimal valor;
 
     @ManyToOne
-    @JoinColumn(name = "remetente_id")
+    @JoinColumn(name = "remetente_id", nullable = false)
     private ClienteModel remetente;
 
     @ManyToOne
-    @JoinColumn(name = "destinatario_id")
+    @JoinColumn(name = "destinatario_id", nullable = false)
     private ClienteModel destinatario;
 }
