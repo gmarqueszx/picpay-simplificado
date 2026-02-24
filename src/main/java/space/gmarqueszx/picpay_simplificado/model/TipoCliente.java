@@ -1,6 +1,6 @@
 package space.gmarqueszx.picpay_simplificado.model;
 
 public enum TipoCliente {
-    COMUM,
-    LOGISTA
+    PESSOA_FISICA,
+    PESSOA_JURIDICA
 }

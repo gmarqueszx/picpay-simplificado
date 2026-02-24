@@ -6,4 +6,6 @@ import space.gmarqueszx.picpay_simplificado.model.ClienteModel;
 
 @Repository
 public interface ClienteRepository extends JpaRepository<ClienteModel, Long> {
+    boolean existsByDocumento(String documento);
+    boolean existsByEmail(String email);
 }
