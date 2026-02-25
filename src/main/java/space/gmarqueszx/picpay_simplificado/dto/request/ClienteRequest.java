@@ -7,9 +7,11 @@ import jakarta.validation.constraints.Email;
 import lombok.Getter;
 import lombok.Setter;
 import space.gmarqueszx.picpay_simplificado.model.TipoCliente;
+import space.gmarqueszx.picpay_simplificado.validation.DocumentoPorTipo;
 
 @Getter
 @Setter
+@DocumentoPorTipo
 public class ClienteRequest {
     private String nome;
 

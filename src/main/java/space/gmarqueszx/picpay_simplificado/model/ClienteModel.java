@@ -9,6 +9,7 @@ import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.CurrentTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 import org.hibernate.validator.constraints.br.CPF;
+import space.gmarqueszx.picpay_simplificado.validation.DocumentoPorTipo;
 
 import java.math.BigDecimal;
 import java.time.OffsetDateTime;
@@ -18,6 +19,7 @@ import java.time.OffsetDateTime;
 @Setter
 @EqualsAndHashCode(onlyExplicitlyIncluded = true)
 @Table(name = "cliente")
+@DocumentoPorTipo
 public class ClienteModel {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "cliente_generator")
@@ -35,6 +37,7 @@ public class ClienteModel {
     @Column(nullable = false)
     private String sobrenome;
 
+    @CPF
     @Column(unique = true, nullable = false)
     private String documento;
 
