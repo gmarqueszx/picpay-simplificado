@@ -9,6 +9,7 @@ import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.CurrentTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 import org.hibernate.validator.constraints.br.CPF;
+import space.gmarqueszx.picpay_simplificado.exception.SaldoInsuficienteException;
 import space.gmarqueszx.picpay_simplificado.validation.DocumentoPorTipo;
 
 import java.math.BigDecimal;
@@ -60,4 +61,15 @@ public class ClienteModel {
     @UpdateTimestamp
     @Column(name = "data_atualizacao", nullable = false)
     private OffsetDateTime dataAtualizacao;
+
+    public void debitar(BigDecimal valor) {
+        if (this.saldo.compareTo(valor) < 0) {
+            throw new SaldoInsuficienteException();
+        }
+        this.saldo = this.saldo.subtract(valor);
+    }
+
+    public void creditar(BigDecimal valor) {
+        this.saldo = this.saldo.add(valor);
+    }
 }
